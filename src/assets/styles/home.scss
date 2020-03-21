@@ -1,0 +1,17 @@
+.home {
+    background-color: #d31d1d;
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #b79ced;
+    color: #ffffff;
+    .am-search {
+      width: 75%;
+      background-color: #b79ced !important;
+    }
+  }
+  .am-grid {
+    border-bottom: 1px solid #e6e6e6;
+  }
+}
