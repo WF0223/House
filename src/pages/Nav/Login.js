@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import '../../assets/styles/login.scss'
 import { Button, Flex, WhiteSpace, InputItem, WingBlank } from 'antd-mobile';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-var qs = require('qs');
+import {login} from '../../api/axios'
 
 
 export default class Login extends Component {
@@ -32,7 +31,7 @@ export default class Login extends Component {
                 <WhiteSpace size="xl" />
                 {/* 输入框 */}
                 <WingBlank size="lg">
-                    <InputItem value={this.state.user} onChange={this.userChange} placeholder="请输入您的账号名" clear>
+                    <InputItem value={this.state.user} onChange={this.userChange} placeholder="请输入您的账号名" clear type="text">
                         <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
                     </InputItem>
                     <InputItem value={this.state.pwd}  onChange={this.pwdChange} placeholder="请输入您的账号密码" clear>
@@ -50,20 +49,13 @@ export default class Login extends Component {
         )
     }
     submit(e) {
-        var data = {
-            acc:this.state.user,
-            pwd:this.state.pwd
-        }
-        console.log(qs.stringify(data))
-        axios.post("http://localhost:80/login.php",qs.stringify(data)).then(res=>{
-            console.log(res)
+        
+        login(this.state.user,this.state.pwd).then(res=>{
+            console.log(res);
             if(res.data==='ok'){
-                alert('登录成功')
+                this.props.history.push('/')
             }
         })
         e.preventDefault();
     }
-    
-
-
 }

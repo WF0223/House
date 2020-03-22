@@ -1,5 +1,5 @@
 .home {
-    background-color: #d31d1d;
+    background-color: #e6e6e6;
   .title {
     display: flex;
     justify-content: space-between;
@@ -7,11 +7,28 @@
     background-color: #b79ced;
     color: #ffffff;
     .am-search {
-      width: 75%;
+      width: 72%;
       background-color: #b79ced !important;
     }
   }
   .am-grid {
     border-bottom: 1px solid #e6e6e6;
+  }
+  .like{
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 5px;
+    .like_one{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
+      .like_list{
+        display: flex;
+      }
+      img{
+        width: 40%;
+        height: 150px;
+      }
+    }
   }
 }
